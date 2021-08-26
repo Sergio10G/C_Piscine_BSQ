@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:04:07 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/25 17:51:25 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 13:27:37 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int	are_chars_equal(char c1, char c2, char c3)
 	return (c1 == c2 || c2 == c3 || c1 == c3);
 }
 
-t_metadata create_metadata(char *buf)
+t_metadata	create_metadata(char *buf)
 {
 	t_metadata	temp;
 	int			i;
 	int			line_len;
-	
+
 	line_len = get_buf_line_len(buf, 0);
 	temp.filled = buf[line_len - 1];
 	temp.blocker = buf[line_len - 2];
@@ -56,7 +56,7 @@ t_metadata create_metadata(char *buf)
 		i++;
 	}
 	temp.cols = get_mat_cols(temp.map);
-	if(are_chars_equal(temp.filled, temp.blocker, temp.empty))
+	if (are_chars_equal(temp.filled, temp.blocker, temp.empty))
 		temp.map = 0;
 	return (temp);
 }

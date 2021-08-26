@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 03:13:49 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/25 06:45:05 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 13:23:29 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,9 @@ int	get_mat_rows(char *buf)
 int	get_mat_cols(char *buf)
 {
 	int	i;
-	int	c;
 
 	i = 0;
-	c = 0;
-	while (buf[i])
-	{
-		if (buf[i] == '\n')
-			break ;
-		c++;
+	while (buf[i] && buf[i] != '\n')
 		i++;
-	}
-	return  (c);
+	return (i);
 }

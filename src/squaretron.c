@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 00:52:15 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/25 17:56:07 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 13:34:38 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_square(t_metadata *md, t_point *start, int side)
 		while (j < side)
 		{
 			if (md -> map[((i + start -> row) * (md -> cols + 1)) + j
-					+ start -> col]	== md -> blocker)
+					+ start -> col] == md -> blocker)
 				return (0);
 			j++;
 		}
@@ -65,6 +65,8 @@ t_square	travel_map(t_metadata md)
 void	paint_biggest_square(t_metadata md, t_square biggest_square)
 {
 	t_point	cur_pos;
+	int		op1;
+	int		op2;
 
 	cur_pos = create_point(0, 0);
 	while (cur_pos.row < biggest_square.side)
@@ -72,8 +74,10 @@ void	paint_biggest_square(t_metadata md, t_square biggest_square)
 		cur_pos.col = 0;
 		while (cur_pos.col < biggest_square.side)
 		{
-			md.map[(cur_pos.row + biggest_square.start.row) * (md.cols + 1)
-				+ cur_pos.col + biggest_square.start.col] = md.filled;
+			op1 = cur_pos.row + biggest_square.start.row;
+			op2 = md.cols + 1;
+			md.map[op1 * op2 + cur_pos.col + biggest_square.start.col]
+				= md.filled;
 			cur_pos.col++;
 		}
 		cur_pos.row++;
@@ -83,20 +87,6 @@ void	paint_biggest_square(t_metadata md, t_square biggest_square)
 void	print_matrix(t_metadata md)
 {
 	ft_putstr(md.map);
-	/*
-	cur_pos = create_point(0, 0);
-	while (cur_pos.row < md.rows)
-	{
-		cur_pos.col = 0;
-		while (cur_pos.col < md.cols)
-		{
-			ft_putchar(md.map[(cur_pos.row * md.cols) + cur_pos.col]);
-			cur_pos.col++;
-		}
-		//ft_putchar('\n');
-		cur_pos.row++;
-	}
-	*/
 }
 
 int	matrix_routine(t_metadata md)

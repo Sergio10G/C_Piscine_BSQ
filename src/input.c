@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 00:50:21 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/25 17:33:05 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 13:06:28 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,9 @@ int	check_matrix_dimensions(t_metadata md)
 	if (cur_pos.row != md.rows)
 		return (0);
 	return (1);
+}
+
+int	error_control(t_metadata md)
+{
+	return (check_matrix_chars(md) && check_matrix_dimensions(md));
 }

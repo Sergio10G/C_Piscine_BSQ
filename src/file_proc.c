@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 02:51:05 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/25 18:03:55 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 13:32:09 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,29 @@ int	get_file_len(int fd)
 	return (c);
 }
 
-
 int	get_buf_line_len(char *buf, int row)
 {
 	int	i;
 	int	c;
-	int	r;
+	int	c2;
 
 	i = 0;
 	c = 0;
-	r = 0;
+	c2 = 0;
 	while (buf[i])
 	{
-		if (r < row)
+		if (c < row)
 		{
 			if (buf[i] == '\n')
-				r++;
+				c++;
 		}
-		else if (r == row)
+		else if (c == row)
 		{
 			if (buf[i] == '\n')
 				break ;
-			c++;
+			c2++;
 		}
 		i++;
 	}
-	return (c);
+	return (c2);
 }
