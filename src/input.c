@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 00:50:21 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/26 13:06:28 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 13:45:57 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,19 @@ int	is_usable_char(t_point pos, t_metadata md)
 int	check_matrix_chars(t_metadata md)
 {
 	t_point	cur_pos;
-	int		empty_chars;
 
-	empty_chars = 0;
 	cur_pos = create_point(0, 0);
 	while (cur_pos.row < md.rows)
 	{
 		cur_pos.col = 0;
 		while (cur_pos.col < md.cols)
 		{
-			if (md.map[(cur_pos.row * md.cols) + cur_pos.col] == md.empty)
-				empty_chars++;
 			if (!is_usable_char(cur_pos, md))
 				return (0);
 			cur_pos.col++;
 		}
 		cur_pos.row++;
 	}
-	if (empty_chars == 0)
-		return (0);
 	return (1);
 }
 
@@ -53,9 +47,7 @@ int	check_matrix_dimensions(t_metadata md)
 	{
 		cur_pos.col = 0;
 		while (cur_pos.col < md.cols)
-		{
 			cur_pos.col++;
-		}
 		if (cur_pos.col != md.cols)
 			return (0);
 		cur_pos.row++;

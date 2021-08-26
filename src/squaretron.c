@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 00:52:15 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/26 13:34:38 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 13:45:19 by sdiez-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,8 @@ int	matrix_routine(t_metadata md)
 	t_square	biggest_sq;
 
 	biggest_sq = travel_map(md);
-	if (biggest_sq.side == 0)
-		return (0);
-	paint_biggest_square(md, biggest_sq);
+	if (biggest_sq.side != 0)
+		paint_biggest_square(md, biggest_sq);
 	print_matrix(md);
 	return (1);
 }
