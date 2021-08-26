@@ -1,6 +1,6 @@
 SRCS	= ./src/file_proc.c ./src/input.c ./src/map_read.c ./src/squaretron.c ./src/helpers.c ./src/main.c ./src/matrix_funcs.c ./src/struct_funcs.c
 
-OBJS	= ${SRCS:.c=.c}
+OBJS	= ${SRCS:.c=.o}
 
 NAME	= bsq
 
