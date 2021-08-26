@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 12:40:37 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/26 13:32:00 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 20:15:07 by sergiodg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	get_map(char **buf, char *file_name)
 	read_chars = read(fd, buf_tmp, len);
 	if (read_chars == 0)
 		return (0);
-	if (buf_tmp == '\0')
+	if (*buf_tmp == '\0')
 		return (0);
 	buf_tmp[len] = '\0';
 	*buf = buf_tmp;
@@ -87,7 +87,7 @@ int	get_map_stdin(char **buf)
 		buf_tmp[i] = buf_tmp_2[i];
 		i++;
 	}
-	if (buf_tmp == '\0')
+	if (*buf_tmp == '\0')
 		return (0);
 	if (buf_tmp_2)
 		free(buf_tmp_2);

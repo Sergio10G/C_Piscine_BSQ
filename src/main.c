@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 15:32:09 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/26 13:35:13 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/26 20:15:36 by sergiodg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	verif_input(int argc, char *argv, char **buf, t_metadata *md)
 	else
 		comp += get_map(buf, argv);
 	*md = create_metadata(*buf);
-	if (md -> map != '\0')
+	if (*(md -> map) != '\0')
 		comp++;
 	comp += error_control(*md);
 	return (comp);
