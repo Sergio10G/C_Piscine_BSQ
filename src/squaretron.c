@@ -6,7 +6,7 @@
 /*   By: sdiez-ga <sdiez-ga@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 00:52:15 by sdiez-ga          #+#    #+#             */
-/*   Updated: 2021/08/26 13:45:19 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/31 13:21:08 by sergiodg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ t_square	travel_map(t_metadata md)
 	biggest_square = create_square(cur_pos, 0);
 	while (cur_pos.row < md.rows)
 	{
+		if (biggest_square.side > md.rows - cur_pos.row)
+			break ;
 		cur_pos.col = 0;
 		while (cur_pos.col < md.cols)
 		{
@@ -86,7 +88,26 @@ void	paint_biggest_square(t_metadata md, t_square biggest_square)
 
 void	print_matrix(t_metadata md)
 {
-	ft_putstr(md.map);
+	int			i;
+	int			flag;
+
+	i = 0;
+	flag = 0;
+	while (md.map[i])
+	{
+		if (flag == 0 && md.map[i] == 'x')
+		{
+			printf(RED);
+			flag = 1;
+		}
+		else if(flag == 1 && md.map[i] != 'x')
+		{
+			printf(RESET);
+			flag = 0;
+		}
+		printf("%c", md.map[i]);
+		i++;
+	}
 }
 
 int	matrix_routine(t_metadata md)

@@ -6,17 +6,20 @@
 /*   By: jpozuelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 00:28:06 by jpozuelo          #+#    #+#             */
-/*   Updated: 2021/08/26 12:06:42 by sdiez-ga         ###   ########.fr       */
+/*   Updated: 2021/08/31 03:02:33 by sergiodg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ALL_HEADERS_H
 # define ALL_HEADERS_H
 
+# define RED "\033[1;31m"
+# define RESET "\033[0m"
 //	Libraries
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 // Structs
 typedef struct s_point
