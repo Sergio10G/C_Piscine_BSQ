@@ -15,6 +15,7 @@
 
 # define RED "\033[1;31m"
 # define RESET "\033[0m"
+
 //	Libraries
 # include <unistd.h>
 # include <fcntl.h>
@@ -80,6 +81,7 @@ t_metadata	create_metadata(char *buf);
 int			get_map(char **buf, char *file_name);
 char		*stdin_read(int *len_out);
 int			get_map_stdin(char **buf);
+
 //	main.c
 int			free_map(char **buf);
 int			verif_input(int argc, char *argv, char **buf, t_metadata *md);
