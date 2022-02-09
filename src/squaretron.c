@@ -95,12 +95,12 @@ void	print_matrix(t_metadata md)
 	flag = 0;
 	while (md.map[i])
 	{
-		if (flag == 0 && md.map[i] == 'x')
+		if (flag == 0 && md.map[i] == md.filled)
 		{
 			printf(RED);
 			flag = 1;
 		}
-		else if(flag == 1 && md.map[i] != 'x')
+		else if(flag == 1 && md.map[i] != md.filled)
 		{
 			printf(RESET);
 			flag = 0;
